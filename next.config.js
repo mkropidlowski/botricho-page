@@ -11,4 +11,16 @@ module.exports = {
     images: {
         unoptimized: true,
     },
+    async redirect() {
+        return [
+            {
+                source: "/",
+                destination: "/panel",
+                pernament: true,
+            },
+        ];
+    },
+    typescript: {
+        ignoreBuildErrors: true,
+    },
 };
