@@ -1,0 +1,18 @@
+@import "../../styles/breakpoints.scss";
+@import "../../styles/variables.scss";
+
+.input {
+    display: block;
+    padding: 10px;
+    margin: 0;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    line-height: 20px;
+    color: #111827;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    width: 250px;
+    height: 35px;
+    &:focus {
+        border-color: $input-color-focus;
+    }
+}
