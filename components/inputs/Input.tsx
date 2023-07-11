@@ -34,7 +34,7 @@ const Input: React.FC<InputProps> = ({ label, id, type = "text", register, requi
                         block 
                         w-[250px] 
                         rounded-md 
-                        border-0
+                        border-1
                         h-[35px]
                         leading-5
                         py-1.5 
