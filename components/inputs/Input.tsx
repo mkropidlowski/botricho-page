@@ -42,7 +42,8 @@ const Input: React.FC<InputProps> = ({ label, id, type = "text", register, requi
                         shadow-sm 
                         ring-1 
                         ring-inset 
-                      ring-gray-300 
+                      ring-gray-300
+                        appearance:none
                       placeholder:text-gray-400 
                         focus:ring-2 
                         focus:ring-inset 
