@@ -28,12 +28,15 @@ const Input: React.FC<InputProps> = ({ label, id, type = "text", register, requi
                     {...register(id, { required })}
                     className={clsx(
                         `
+                        m-0
                         p-2
                         form-input
                         block 
-                        w-full 
+                        w-[250px] 
                         rounded-md 
-                        border-0 
+                        border-0
+                        h-[35px]
+                        leading-5
                         py-1.5 
                         text-gray-900 
                         shadow-sm 

@@ -9,6 +9,11 @@ const roboto = Roboto({ weight: ["100", "300", "400", "500", "700", "900"], subs
 export const metadata: Metadata = {
     title: "Botricho - Trychologia i kosmetologia.",
     description: "Trychologia i kosmetologia.",
+    viewport: {
+        width: "device-width",
+        initialScale: 1,
+        maximumScale: 1,
+    },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
