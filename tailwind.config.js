@@ -28,10 +28,10 @@ module.exports = {
                 1440: "1440px",
             },
             height: {
-                navBarHeight: "3.75rem",
+                navBarHeight: "70px",
             },
             minHeight: {
-                navBarHeight: "3.75rem",
+                navBarHeight: "70px",
             },
         },
         screens: {

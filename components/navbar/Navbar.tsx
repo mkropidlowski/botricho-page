@@ -6,6 +6,7 @@ import { MenuLinksProps, NavbarProps } from "./helpers/types";
 import { menuLinks } from "./helpers/links";
 import { signOut, useSession } from "next-auth/react";
 import clsx from "clsx";
+import { Facebook, Instagram } from "../icons";
 
 const Navbar: FC<NavbarProps> = ({ className, links = menuLinks }) => {
     const { data } = useSession();
@@ -18,7 +19,7 @@ const Navbar: FC<NavbarProps> = ({ className, links = menuLinks }) => {
     return (
         <nav
             className={clsx(
-                "flex flex-wrap justify-around items-center w-full bg-white h-navBarHeight min-h-navBarHeight shadow-[0_8px_5px_-10px_rgba(0,0,0,0.3)]"
+                "fixed top-0 flex flex-wrap justify-around items-center w-full bg-white h-navBarHeight min-h-navBarHeight shadow-[0_8px_5px_-10px_rgba(0,0,0,0.3)]"
             )}
         >
             <h2 className={clsx("text-black")}>
@@ -98,6 +99,14 @@ const Navbar: FC<NavbarProps> = ({ className, links = menuLinks }) => {
                             <button onClick={() => signOut({ callbackUrl: "/" })}>Wyloguj</button>
                         </div>
                     ) : null}
+                </li>
+                <li className="flex gap-3">
+                    <Link href="https://www.facebook.com/botricho" target="_blank">
+                        <Facebook width={25} height={25} />
+                    </Link>
+                    <Link href="https://www.instagram.com/botricho/" target="_blank">
+                        <Instagram width={25} height={25} />
+                    </Link>
                 </li>
             </ul>
         </nav>

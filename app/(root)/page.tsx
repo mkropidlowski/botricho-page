@@ -1,15 +1,21 @@
+import AboutSection from "@/components/about/AboutSection";
+import Contact from "@/components/contact/Contact";
 import Footer from "@/components/footer/Footer";
-import Navbar from "@/components/navbar/Navbar";
+import Hero from "@/components/hero/Hero";
 import PageLayout from "@/components/pageLayout/PageLayout";
+import SectionsWrapper from "@/components/sectionsWrapper/SectionsWrapper";
+import Services from "@/components/services/Services";
 
 export default function Home() {
     return (
-        <main className="flex flex-col justify-center items-center w-full h-full">
-            <Navbar />
-            <PageLayout>
-                <h2>Tu będzie sections pageLayout</h2>
-            </PageLayout>
-            <Footer />
-        </main>
+        <PageLayout>
+            <Hero className="flex flex-col z-[-100] h-[80vh]" />
+            <SectionsWrapper>
+                <Services />
+                <AboutSection />
+                <Contact />
+                <Footer />
+            </SectionsWrapper>
+        </PageLayout>
     );
 }
