@@ -8,7 +8,7 @@ import axios from "axios";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { useCallback, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
-import Button from "@/components/Button";
+import Button from "@/components/buttons/Button";
 import Link from "next/link";
 
 type Variant = "LOGIN" | "REGISTER";

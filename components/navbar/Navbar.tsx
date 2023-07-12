@@ -6,7 +6,6 @@ import { MenuLinksProps, NavbarProps } from "./helpers/types";
 import { menuLinks } from "./helpers/links";
 import { signOut, useSession } from "next-auth/react";
 import clsx from "clsx";
-import Button from "../Button";
 
 const Navbar: FC<NavbarProps> = ({ className, links = menuLinks }) => {
     const { data } = useSession();
@@ -28,11 +27,11 @@ const Navbar: FC<NavbarProps> = ({ className, links = menuLinks }) => {
                     <span className="text-xs">Kosmetologia | Trychologia</span>
                 </Link>
             </h2>
-            <div className={clsx("me-[-25px] md:hidden", isMobileMenuOpen ? "p-2" : "")}>
+            <div className={clsx("me-[-25px] md:hidden", isMobileMenuOpen ? "p-2" : "p-2")}>
                 <button
                     type="button"
                     onClick={handleMobileMenuToggle}
-                    className={clsx("p-2 rounded focus:outline-none", { " bg-gray-300": isMobileMenuOpen })}
+                    className={clsx("p-2 rounded focus:outline-none", { " bg-gray-100": isMobileMenuOpen })}
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -52,8 +51,10 @@ const Navbar: FC<NavbarProps> = ({ className, links = menuLinks }) => {
             </div>
             <ul
                 className={clsx(
-                    "flex items-center gap-5",
-                    isMobileMenuOpen ? "flex-col bg-white w-full h-[500px] z-10" : "hidden md:flex"
+                    "flex items-center gap-[50px] text-base font-medium",
+                    isMobileMenuOpen
+                        ? "flex-col bg-white w-full h-[500px] z-10 gap-[5px] text-center"
+                        : "hidden md:flex"
                 )}
             >
                 {Object.values(links).map(({ id, text, redirectToComponent }: MenuLinksProps) => {
@@ -61,14 +62,28 @@ const Navbar: FC<NavbarProps> = ({ className, links = menuLinks }) => {
                     const hrefToComponent = `/${id}`;
 
                     return (
-                        <li key={id}>
+                        <li
+                            key={id}
+                            className={clsx(
+                                isMobileMenuOpen && "w-full p-4 text-black hover:bg-gray-100 cursor-pointer"
+                            )}
+                        >
                             {redirectToComponent ? (
                                 <Link href={hrefToComponent}>
                                     <button type="button">{text}</button>
                                 </Link>
                             ) : (
                                 <Link href={linkHref}>
-                                    <button type="button">{text}</button>
+                                    <button
+                                        type="button"
+                                        className={clsx(
+                                            isMobileMenuOpen
+                                                ? ""
+                                                : "hover:bg-gray-100 rounded-lg w-[90px] p-2 transition duration-500 ease-in-out hover:scale-110"
+                                        )}
+                                    >
+                                        {text}
+                                    </button>
                                 </Link>
                             )}
                         </li>
@@ -78,9 +93,9 @@ const Navbar: FC<NavbarProps> = ({ className, links = menuLinks }) => {
                     {data?.user ? (
                         <div className={clsx("flex gap-5", isMobileMenuOpen ? "flex-col" : "")}>
                             <Link href="/panel">
-                                <Button>Witaj, {data?.user?.name}</Button>
+                                <button>Witaj, {data?.user?.name}</button>
                             </Link>
-                            <Button onClick={() => signOut({ callbackUrl: "/" })}>Wyloguj</Button>
+                            <button onClick={() => signOut({ callbackUrl: "/" })}>Wyloguj</button>
                         </div>
                     ) : null}
                 </li>
