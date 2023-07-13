@@ -4,7 +4,13 @@ const HeroImage = () => {
     return (
         <>
             <div className="w-full absolute h-[600px] inset-0">
-                <Image src={heroBackground} alt="Botricho Background" fill style={{ objectFit: "cover" }} />
+                <Image
+                    src={heroBackground}
+                    alt="Botricho Background"
+                    fill
+                    style={{ objectFit: "cover" }}
+                    className="opacity-50"
+                />
             </div>
         </>
     );

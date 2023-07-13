@@ -19,7 +19,7 @@ const Navbar: FC<NavbarProps> = ({ className, links = menuLinks }) => {
     return (
         <nav
             className={clsx(
-                "fixed top-0 flex flex-wrap justify-around items-center w-full bg-white md:h-[90px] shadow-[0_8px_5px_-10px_rgba(0,0,0,0.3)] h-navBarHeight "
+                "fixed top-0 flex flex-wrap justify-around items-center w-full bg-white md:h-[90px] shadow-[0_8px_5px_-10px_rgba(0,0,0,0.3)] h-navBarHeight z-30 "
             )}
         >
             <h2 className={clsx("text-black")}>
