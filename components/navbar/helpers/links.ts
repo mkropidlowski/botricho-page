@@ -3,13 +3,13 @@ export const menuLinks = {
         id: "",
         text: "Home",
     },
-    about: {
-        id: "about",
-        text: "O nas",
-    },
     offer: {
         id: "offer",
         text: "Oferta",
+    },
+    about: {
+        id: "about",
+        text: "O nas",
     },
     contact: {
         id: "contact",
