@@ -14,6 +14,12 @@ module.exports = {
                 primary: {
                     DEFAULT: "#4B55C0",
                 },
+                buttonColor: {
+                    DEFAULT: "#616d53",
+                },
+                serviceBoxColor: {
+                    DEFAULT: "#e8d8c5",
+                },
                 secondary: {
                     DEFAULT: "#202945",
                 },
