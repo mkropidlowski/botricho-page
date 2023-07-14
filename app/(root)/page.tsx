@@ -109,7 +109,6 @@ export const fakeData: BE_Services[] = [
 export default function Home() {
     return (
         <PageLayout>
-            <Hero className="flex flex-col h-[650px]" />
             <SectionsWrapper>
                 <Services services={fakeData} />
                 <AboutSection />

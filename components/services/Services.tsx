@@ -10,7 +10,7 @@ interface IServices {
 
 const Services: FC<IServices> = ({ services }) => {
     return (
-        <div className="w-full h-full flex justify-center items-center flex-col " id="offer">
+        <div className="w-full flex justify-center items-center flex-col mb-[80px]" id="offer">
             <div>
                 <h1 className={clsx("md:text-[60px] md:font-bold p-5 text-[45px] font-semibold", styles.heading)}>
                     Oferta
