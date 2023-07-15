@@ -6,7 +6,7 @@ import { MenuLinksProps, NavbarProps } from "./helpers/types";
 import { menuLinks } from "./helpers/links";
 import { signOut, useSession } from "next-auth/react";
 import clsx from "clsx";
-import { Facebook, Instagram } from "../icons";
+import { Booksy, Facebook, Instagram } from "../icons";
 
 const Navbar: FC<NavbarProps> = ({ className, links = menuLinks }) => {
     const { data } = useSession();
@@ -106,6 +106,10 @@ const Navbar: FC<NavbarProps> = ({ className, links = menuLinks }) => {
                     </Link>
                     <Link href="https://www.instagram.com/botricho/" target="_blank">
                         <Instagram width={25} height={25} />
+                    </Link>
+
+                    <Link href="https://botricho.booksy.com" target="_blank" className="cursor-pointer">
+                        <Booksy width={60} height={25} />
                     </Link>
                 </li>
             </ul>

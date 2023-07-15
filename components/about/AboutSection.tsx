@@ -8,7 +8,7 @@ const AboutSection = () => {
             <div>
                 <h1 className={clsx("md:text-[60px] md:font-bold p-5 text-[45px] font-semibold")}>O nas</h1>
             </div>
-            <div className="w-full flex md:flex-row flex-col justify-evenly items-center gap-[100px]">
+            <div className="w-full min-h-[600px] flex md:flex-row flex-col justify-evenly gap-[100px] items-center">
                 <div className="max-w-[500px]">
                     <h2 className="text-[30px]">Salon Botricho</h2>
                     <p className="max-w-[300px] md:w-[500px] mt-[20px]">
@@ -19,8 +19,14 @@ const AboutSection = () => {
                     </p>
                 </div>
                 <div>
-                    <div className="flex items-center justify-center w-[410px] h-[500px]">
-                        <Image src={owner} alt="Aneta Botricho" style={{ objectFit: "cover" }} />
+                    <div className="flex items-center justify-center w-[310px] h-[300px]">
+                        <Image
+                            src={owner}
+                            alt="Aneta Botricho"
+                            style={{ objectFit: "cover" }}
+                            height={350}
+                            className="rounded-xl"
+                        />
                     </div>
                 </div>
             </div>

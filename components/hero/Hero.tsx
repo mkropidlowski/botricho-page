@@ -24,7 +24,7 @@ const Hero: FC<HeroProps> = ({ className }) => {
                     className="cursor-pointer z-[30] max-w-[360px]"
                 >
                     <button className=" md:h-[50px] h-[60px] text-lg rounded-lg bg-buttonColor font-medium text-white pl-3 pr-3 cursor-pointer">
-                        Zarezeruj wizytę za pomocą Booksy!
+                        Zarezeruj wizytę już teraz!
                     </button>
                 </Link>
             </div>
