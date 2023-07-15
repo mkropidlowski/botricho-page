@@ -6,7 +6,7 @@ const Footer = () => {
     const currentYear = new Date();
 
     return (
-        <footer className="max-h-[350px] flex flex-col items-start justify-center relative w-screen rounded-t-[30px] bg-serviceBoxColor">
+        <footer className="max-h-fit flex flex-col items-start justify-center relative w-screen rounded-t-[30px] bg-serviceBoxColor">
             <div className="m-auto p-4">
                 <Link
                     href="https://botricho.booksy.com"
