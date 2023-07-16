@@ -26,6 +26,7 @@ const AboutSection = () => {
                             style={{ objectFit: "cover" }}
                             height={350}
                             className="rounded-xl"
+                            priority
                         />
                     </div>
                 </div>

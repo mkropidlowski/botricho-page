@@ -10,6 +10,7 @@ const HeroImage = () => {
                     fill
                     style={{ objectFit: "cover" }}
                     className="opacity-50"
+                    priority
                 />
             </div>
         </>

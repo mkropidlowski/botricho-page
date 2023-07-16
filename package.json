@@ -7,6 +7,7 @@
         "build": "next build",
         "start": "next start",
         "lint": "next lint",
+        "sitemap": "next-sitemap --config next-sitemap.config.js",
         "svgr": "npx @svgr/cli svg-icons --out-dir components/icons --icon --typescript  --ignore-existing "
     },
     "dependencies": {
@@ -25,6 +26,7 @@
         "lodash.capitalize": "^4.2.1",
         "next": "13.4.9",
         "next-auth": "^4.22.1",
+        "next-sitemap": "^4.1.8",
         "react": "18.2.0",
         "react-dom": "18.2.0",
         "react-hook-form": "^7.45.1",
