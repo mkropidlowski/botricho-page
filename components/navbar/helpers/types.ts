@@ -8,4 +8,5 @@ export interface MenuLinksProps {
     id?: string;
     text?: string;
     redirectToComponent: boolean;
+    scrollIntoTop: boolean;
 }

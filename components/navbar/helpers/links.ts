@@ -2,6 +2,7 @@ export const menuLinks = {
     home: {
         id: "",
         text: "Home",
+        scrollIntoTop: true,
     },
     offer: {
         id: "offer",

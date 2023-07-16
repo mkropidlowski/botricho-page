@@ -1,17 +1,16 @@
 import Image from "next/image";
-import heroBackground from "@/public/images/heroBackground.jpeg";
-import heroMobile from "@/public/images/hero_mobile.jpeg";
+import heroCuts from "@/public/images/heroBackground_cut.jpeg";
 
 const HeroImage = () => {
     return (
         <>
-            <div className="w-full absolute h-[600px] inset-0 top-[50px]">
+            <div className="-w-full absolute h-[600px] inset-0 top-[50px]">
                 <Image
-                    src={heroBackground}
+                    src={heroCuts}
                     alt="Botricho Background"
                     fill
                     style={{ objectFit: "cover" }}
-                    className="opacity-70"
+                    className="opacity-70 object-top"
                     priority
                 />
             </div>

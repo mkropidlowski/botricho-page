@@ -11,6 +11,12 @@ import { Booksy, Facebook, Instagram } from "../icons";
 const Navbar: FC<NavbarProps> = ({ className, links = menuLinks }) => {
     const { data } = useSession();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const isBrowser = () => typeof window !== "undefined";
+
+    const scrollToTop = () => {
+        if (!isBrowser()) return;
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    };
 
     const handleMobileMenuToggle = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -22,7 +28,7 @@ const Navbar: FC<NavbarProps> = ({ className, links = menuLinks }) => {
                 "fixed top-0 flex flex-wrap justify-around items-center w-full bg-white md:h-[90px] shadow-[0_8px_5px_-10px_rgba(0,0,0,0.3)] h-navBarHeight z-[100] "
             )}
         >
-            <h2 className={clsx("text-black")}>
+            <h2 className={clsx("text-black")} onClick={scrollToTop}>
                 <Link href="/" className="flex flex-col">
                     <span className="text-lg font-medium">Botricho Gdańsk</span>
                     <span className="text-xs">Kosmetologia | Trychologia</span>
@@ -60,7 +66,7 @@ const Navbar: FC<NavbarProps> = ({ className, links = menuLinks }) => {
                         : "hidden md:flex"
                 )}
             >
-                {Object.values(links).map(({ id, text, redirectToComponent }: MenuLinksProps) => {
+                {Object.values(links).map(({ id, text, redirectToComponent, scrollIntoTop }: MenuLinksProps) => {
                     const linkHref = `/#${id}`;
                     const hrefToComponent = `/${id}`;
 
@@ -74,6 +80,19 @@ const Navbar: FC<NavbarProps> = ({ className, links = menuLinks }) => {
                             {redirectToComponent ? (
                                 <Link href={hrefToComponent}>
                                     <button type="button">{text}</button>
+                                </Link>
+                            ) : scrollIntoTop ? (
+                                <Link href={"/"} onClick={scrollToTop}>
+                                    <button
+                                        type="button"
+                                        className={clsx(
+                                            isMobileMenuOpen
+                                                ? ""
+                                                : "hover:bg-gray-100 rounded-lg w-[90px] p-2 transition duration-500 ease-in-out hover:scale-110"
+                                        )}
+                                    >
+                                        {text}
+                                    </button>
                                 </Link>
                             ) : (
                                 <Link href={linkHref}>
