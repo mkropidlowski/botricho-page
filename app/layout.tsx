@@ -7,6 +7,7 @@ import ToasterContext from "./provider/ToasterContext";
 const roboto = Montserrat({ weight: ["100", "300", "400", "500", "700", "900"], subsets: ["latin"] });
 
 export const metadata: Metadata = {
+    metadataBase: new URL("https://botricho.pl"),
     title: "Botricho - Trychologia i kosmetologia.",
     description:
         "W Botricho zadbasz o swoją urodę. Rozwiążesz problemy dotyczące włosów, skóry głowy, cery oraz stóp. Oferujemy zabiegi z wykorzystaniem profesjonalnych kosmoceutyków i certyfikowanych urządzeń, które wykonywane są przez wykwalifikowany personel.",

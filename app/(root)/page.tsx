@@ -5,10 +5,11 @@ import PageLayout from "@/components/pageLayout/PageLayout";
 import SectionsWrapper from "@/components/sectionsWrapper/SectionsWrapper";
 import Services from "@/components/services/Services";
 
-const PROD_URL = (process.env.NEXT_BASE_URL as String) ? (process.env.NEXT_LOCAL_URL as String) : "";
+// const PROD_URL = process.env.NEXT_BASE_URL as String;
+// const PROD_URL = process.env.NEXT_LOCAL_URL as String;
 
 export async function getCategories() {
-    const res = await fetch(`${PROD_URL}/api/categories`, { cache: "no-cache" });
+    const res = await fetch(`http://localhost:3000/api/categories`, { cache: "no-cache" });
 
     if (!res.ok) {
         throw new Error("Bład pobierania danych");
@@ -18,7 +19,7 @@ export async function getCategories() {
 }
 
 export async function getServices() {
-    const res = await fetch(`${PROD_URL}/api/services`, { cache: "no-cache" });
+    const res = await fetch(`http://localhost:3000/api/services`, { cache: "no-cache" });
 
     if (!res.ok) {
         throw new Error("Bład pobierania danych");
