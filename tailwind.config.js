@@ -15,7 +15,7 @@ module.exports = {
                     DEFAULT: "#4B55C0",
                 },
                 buttonColor: {
-                    DEFAULT: "#616d53",
+                    DEFAULT: "#4E5945",
                 },
                 serviceBoxColor: {
                     DEFAULT: "#e8d8c5",

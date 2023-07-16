@@ -12,6 +12,7 @@ const Footer = () => {
                     href="https://botricho.booksy.com"
                     target="_blank"
                     className="cursor-pointer z-[30] max-w-[300px]"
+                    aria-label="Booksy Botriocho"
                 >
                     <button className=" md:h-[50px] h-[60px] text-lg rounded-lg bg-buttonColor font-medium text-white pl-3 pr-3 cursor-pointer">
                         Zarezeruj wizytę za pomocą Booksy!
@@ -20,7 +21,7 @@ const Footer = () => {
             </div>
             <div className="md:max-w-[1240px] max-w-[300px] md:inline-grid block grid-cols-[290px_200px_290px] mt-[50px] gap-5 m-auto">
                 <div>
-                    <h2 className={clsx("text-white")}>
+                    <h2 className={clsx("text-black")}>
                         <Link href="/" className="flex flex-col">
                             <span className="text-2xl font-medium">Botricho Gdańsk</span>
                             <span className="text-lg">Kosmetologia | Trychologia</span>
@@ -29,7 +30,11 @@ const Footer = () => {
                 </div>
 
                 <div className="mt-[30px] mb-[30px] text-center">
-                    <Link href="https://goo.gl/maps/UJUyyqVRzgfGmkyy6" className="cursor-pointer font-medium">
+                    <Link
+                        href="https://goo.gl/maps/UJUyyqVRzgfGmkyy6"
+                        className="cursor-pointer font-medium"
+                        aria-label="Google Maps Botriocho"
+                    >
                         Cedrowa 31 - Łostowice, U4, 80-180, Gdańsk
                     </Link>
                 </div>
@@ -49,8 +54,13 @@ const Footer = () => {
                     </ul>
                 </div>
             </div>
-            <div className="w-full text-center text-xs font-medium text-gray-500">
-                <Link href="https://mkropidlowski.pl" className="cursor-pointer">
+            <div className="w-full text-center text-xs font-medium text-black">
+                <Link
+                    href="https://mkropidlowski.pl"
+                    className="cursor-pointer"
+                    target="_blank"
+                    aria-label="Michał Kropidłowski"
+                >
                     Wykonał: M.Kropidłowski - {currentYear.getFullYear()}
                 </Link>
             </div>

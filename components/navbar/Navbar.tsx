@@ -32,6 +32,8 @@ const Navbar: FC<NavbarProps> = ({ className, links = menuLinks }) => {
                 <button
                     type="button"
                     onClick={handleMobileMenuToggle}
+                    name="menu button"
+                    aria-label="Menu"
                     className={clsx("p-2 rounded focus:outline-none", { " bg-gray-100": isMobileMenuOpen })}
                 >
                     <svg
@@ -101,14 +103,19 @@ const Navbar: FC<NavbarProps> = ({ className, links = menuLinks }) => {
                     ) : null}
                 </li>
                 <li className="flex gap-3">
-                    <Link href="https://www.facebook.com/botricho" target="_blank">
+                    <Link href="https://www.facebook.com/botricho" target="_blank" aria-label="Facebook Botriocho">
                         <Facebook width={25} height={25} />
                     </Link>
-                    <Link href="https://www.instagram.com/botricho/" target="_blank">
+                    <Link href="https://www.instagram.com/botricho/" target="_blank" aria-label="Instagram Botrioco">
                         <Instagram width={25} height={25} />
                     </Link>
 
-                    <Link href="https://botricho.booksy.com" target="_blank" className="cursor-pointer">
+                    <Link
+                        href="https://botricho.booksy.com"
+                        target="_blank"
+                        className="cursor-pointer"
+                        aria-label="Booksy Botriocho"
+                    >
                         <Booksy width={60} height={25} />
                     </Link>
                 </li>
