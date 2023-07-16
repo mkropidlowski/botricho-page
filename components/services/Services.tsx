@@ -1,14 +1,15 @@
-import { BE_Services } from "@/types/types";
+"use client";
+import { BE_Category } from "@/types/types";
 import Card from "./components/Card";
-import { FC } from "react";
 import styles from "./service.module.scss";
 import clsx from "clsx";
+import { FC } from "react";
 
-interface IServices {
-    services: BE_Services[];
+interface IService {
+    categories: BE_Category[];
 }
 
-const Services: FC<IServices> = ({ services }) => {
+const Services: FC<IService> = ({ categories }) => {
     return (
         <div className="w-full flex justify-center items-center flex-col mb-[80px]" id="offer">
             <div>
@@ -17,9 +18,9 @@ const Services: FC<IServices> = ({ services }) => {
                 </h1>
             </div>
             <div className="w-full flex justify-center items-center flex-wrap gap-4">
-                {services.map((service) => (
-                    <Card key={service.id} service={service} />
-                ))}
+                {categories.map((category) => {
+                    return <Card key={category.id} category={category} />;
+                })}
             </div>
         </div>
     );

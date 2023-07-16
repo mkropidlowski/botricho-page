@@ -1,12 +1,12 @@
 export interface BE_Services {
     id?: string;
-    name?: string;
+    title?: string;
     image?: string;
-    servicesList: BE_ServicesListProps[];
+    description?: string;
+    category?: string;
 }
 
-export interface BE_ServicesListProps {
-    serviceId?: string;
-    serviceName?: string;
-    description?: string;
+export interface BE_Category {
+    id?: string;
+    name?: string;
 }

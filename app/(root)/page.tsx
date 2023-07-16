@@ -1,116 +1,38 @@
 import AboutSection from "@/components/about/AboutSection";
 import Contact from "@/components/contact/Contact";
 import Footer from "@/components/footer/Footer";
-import Hero from "@/components/hero/Hero";
 import PageLayout from "@/components/pageLayout/PageLayout";
 import SectionsWrapper from "@/components/sectionsWrapper/SectionsWrapper";
 import Services from "@/components/services/Services";
-import { BE_Services } from "@/types/types";
 
-export const fakeData: BE_Services[] = [
-    {
-        id: "1",
-        name: "Twarz",
-        servicesList: [
-            {
-                serviceId: "1",
-                serviceName: "Trychologiczny peeling + maska",
-                description:
-                    "Lorem ipsum, Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
-            },
-            {
-                serviceId: "2",
-                serviceName: "Trychologiczny peeling + maska",
-                description:
-                    "Lorem ipsum, Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
-            },
-            {
-                serviceId: "3",
-                serviceName: "Trychologiczny peeling + maska",
-                description:
-                    "Lorem ipsum, Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
-            },
-            {
-                serviceId: "4",
-                serviceName: "Trychologiczny peeling + maska",
-                description:
-                    "Lorem ipsum, Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
-            },
-        ],
-    },
-    {
-        id: "2",
-        name: "Głowa",
-        servicesList: [
-            {
-                serviceId: "1",
-                serviceName: "Trychologiczny peeling + maska",
-                description:
-                    "Lorem ipsum, Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
-            },
-            {
-                serviceId: "2",
-                serviceName: "Trychologiczny peeling + maska",
-                description:
-                    "Lorem ipsum, Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
-            },
-        ],
-    },
-    {
-        id: "3",
-        name: "Ciało",
-        servicesList: [
-            {
-                serviceId: "2",
-                serviceName: "Trychologiczny peeling",
-                description:
-                    "Lorem ipsum, Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
-            },
-        ],
-    },
-    {
-        id: "4",
-        name: "Stopy",
-        servicesList: [
-            {
-                serviceId: "1",
-                serviceName: "Trychologiczny peeling + maska",
-                description:
-                    "Lorem ipsum, Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
-            },
-            {
-                serviceId: "2",
-                serviceName: "Trychologiczny peeling + maska",
-                description:
-                    "Lorem ipsum, Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
-            },
-        ],
-    },
-    {
-        id: "5",
-        name: "Brzuch",
-        servicesList: [
-            {
-                serviceId: "1",
-                serviceName: "Trychologiczny peeling + maska",
-                description:
-                    "Lorem ipsum, Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
-            },
-            {
-                serviceId: "2",
-                serviceName: "Trychologiczny peeling + maska",
-                description:
-                    "Lorem ipsum, Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
-            },
-        ],
-    },
-];
+const PROD_URL = (process.env.NEXT_BASE_URL as String) ? (process.env.NEXT_LOCAL_URL as String) : "";
 
-export default function Home() {
+export async function getCategories() {
+    const res = await fetch(`${PROD_URL}/api/categories`, { cache: "no-cache" });
+
+    if (!res.ok) {
+        throw new Error("Bład pobierania danych");
+    }
+
+    return res.json();
+}
+
+export async function getServices() {
+    const res = await fetch(`${PROD_URL}/api/services`, { cache: "no-cache" });
+
+    if (!res.ok) {
+        throw new Error("Bład pobierania danych");
+    }
+
+    return res.json();
+}
+
+export default async function Home() {
+    const categories = await getCategories();
     return (
         <PageLayout>
             <SectionsWrapper>
-                <Services services={fakeData} />
+                <Services categories={categories} />
                 <AboutSection />
                 <Contact />
                 <Footer />
