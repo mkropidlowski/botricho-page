@@ -4,29 +4,7 @@ import Footer from "@/components/footer/Footer";
 import PageLayout from "@/components/pageLayout/PageLayout";
 import SectionsWrapper from "@/components/sectionsWrapper/SectionsWrapper";
 import Services from "@/components/services/Services";
-
-// const PROD_URL = process.env.NEXT_BASE_URL as String;
-// const PROD_URL = process.env.NEXT_LOCAL_URL as String;
-
-export async function getCategories() {
-    const res = await fetch(`http://localhost:3000/api/categories`, { cache: "no-cache" });
-
-    if (!res.ok) {
-        throw new Error("Bład pobierania danych");
-    }
-
-    return res.json();
-}
-
-export async function getServices() {
-    const res = await fetch(`http://localhost:3000/api/services`, { cache: "no-cache" });
-
-    if (!res.ok) {
-        throw new Error("Bład pobierania danych");
-    }
-
-    return res.json();
-}
+import { getCategories } from "../api/api";
 
 export default async function Home() {
     const categories = await getCategories();

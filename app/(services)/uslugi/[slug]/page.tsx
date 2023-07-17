@@ -4,7 +4,7 @@ import { BE_Category, BE_Services } from "@/types/types";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import clsx from "clsx";
-import { getCategories, getServices } from "@/app/(root)/page";
+import { getCategories, getServices } from "@/app/api/api";
 import Loading from "./loading";
 
 export default function ServicesDetails({ params }: { params: { slug: string } }) {

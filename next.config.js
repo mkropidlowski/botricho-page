@@ -23,11 +23,4 @@ module.exports = {
     typescript: {
         ignoreBuildErrors: true,
     },
-    resolve: {
-        extensions: [".ts", ".tsx", ".js"],
-        // Alias to tell resolve the Prisma Client properly
-        alias: {
-            "@prisma/client$": require.resolve("@prisma/client"),
-        },
-    },
 };
