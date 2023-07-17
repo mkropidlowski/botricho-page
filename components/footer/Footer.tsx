@@ -1,12 +1,21 @@
 import clsx from "clsx";
 import Link from "next/link";
-import Image from "next/image";
+import { FC } from "react";
 
-const Footer = () => {
+interface IFooter {
+    className?: string;
+}
+
+const Footer: FC<IFooter> = ({ className }) => {
     const currentYear = new Date();
 
     return (
-        <footer className="max-h-fit flex flex-col items-start justify-center relative w-screen rounded-t-[30px] bg-serviceBoxColor">
+        <footer
+            className={clsx(
+                "max-h-fit flex flex-col items-start justify-center relative w-screen rounded-t-[30px] bg-serviceBoxColor",
+                className
+            )}
+        >
             <div className="m-auto p-4">
                 <Link
                     href="https://botricho.booksy.com"
@@ -19,7 +28,7 @@ const Footer = () => {
                     </button>
                 </Link>
             </div>
-            <div className="md:max-w-[1240px] max-w-[300px] md:inline-grid block grid-cols-[290px_200px_290px] mt-[50px] gap-5 m-auto">
+            <div className="md:max-w-[1240px] max-w-[300px] md:inline-grid block grid-cols-[290px_200px_290px] md:mt-[50px] mt-0 gap-5 m-auto">
                 <div>
                     <h2 className={clsx("text-black")}>
                         <Link href="/" className="flex flex-col">

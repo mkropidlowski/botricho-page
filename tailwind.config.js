@@ -20,6 +20,9 @@ module.exports = {
                 serviceBoxColor: {
                     DEFAULT: "#e8d8c5",
                 },
+                boxColor: {
+                    DEFAULT: "#e7b298",
+                },
                 secondary: {
                     DEFAULT: "#202945",
                 },

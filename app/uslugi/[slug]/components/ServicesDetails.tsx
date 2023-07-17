@@ -50,20 +50,20 @@ const ServicesDetails: React.FC<ServicesProps> = ({ services, slug }) => {
                     </div>
                     <div className="max-w-[1150px] flex ">
                         {selectedServicesList.length === 0 ? (
-                            <div className="flex items-center flex-col gap-5 p-4">
+                            <div className="flex items-center flex-col gap-5 p-4 h-[550px]">
                                 <h2 className="text-lg">Brak zabiegów w kategorii - {slug}</h2>
                                 <Link href={"/"} className="font-medium">
                                     Wróć do strony głownej
                                 </Link>
                             </div>
                         ) : (
-                            <div>
+                            <div className="h-fit mb-[150px]">
                                 <h1 className="text-4xl font-bold">{slug}</h1>
 
                                 <div className="flex flex-wrap gap-5 p-4">
                                     {selectedServicesList.map((item) => (
                                         <div
-                                            className="bg-serviceBoxColor md:w-[500px] w-[300px] rounded-md p-3"
+                                            className="bg-boxColor md:w-[500px] w-[300px] rounded-md p-3"
                                             key={item.id}
                                         >
                                             <h2>{item.title}</h2>
