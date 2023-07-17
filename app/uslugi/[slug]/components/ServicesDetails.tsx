@@ -16,6 +16,11 @@ const ServicesDetails: React.FC<ServicesProps> = ({ services, slug }) => {
     const [servicesCategory, setServicesCategory] = useState<string>();
     const [servicesDetails, setServicesDetails] = useState<BE_Services[]>([]);
 
+    window.scroll({
+        top: 0,
+        behavior: "smooth",
+    });
+
     useEffect(() => {
         if (slug) {
             setServicesCategory(slug);
