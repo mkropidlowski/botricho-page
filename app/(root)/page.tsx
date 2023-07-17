@@ -4,7 +4,7 @@ import Footer from "@/components/footer/Footer";
 import PageLayout from "@/components/pageLayout/PageLayout";
 import SectionsWrapper from "@/components/sectionsWrapper/SectionsWrapper";
 import Services from "@/components/services/Services";
-import { getCategories } from "../api/api";
+import getCategories from "../actions/getCategories";
 
 export default async function Home() {
     const categories = await getCategories();

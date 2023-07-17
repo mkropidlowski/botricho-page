@@ -1,19 +1,11 @@
-export async function getCategories() {
-    const res = await fetch(`https://botricho.pl/api/categories`, { cache: "no-cache" });
+// import prisma from "@/app/libs/prismadb";
 
-    if (!res.ok) {
-        throw new Error("Bład pobierania danych");
-    }
+// export async function getCategories() {
+//     const categories = await prisma.categories.findMany();
+//     return categories;
+// }
 
-    return res.json();
-}
-
-export async function getServices() {
-    const res = await fetch(`https://botricho.pl/api/services`, { cache: "no-cache" });
-
-    if (!res.ok) {
-        throw new Error("Bład pobierania danych");
-    }
-
-    return res.json();
-}
+// export async function getServices() {
+//     const services = await prisma.categories.findMany();
+//     return services;
+// }

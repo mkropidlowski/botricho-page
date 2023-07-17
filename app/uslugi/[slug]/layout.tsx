@@ -1,7 +1,7 @@
 import Footer from "@/components/footer/Footer";
 import Navbar from "@/components/navbar/Navbar";
 
-export default function ServicesLayout({ children }: { children: React.ReactNode }) {
+export default async function ServicesLayout({ children }: { children: React.ReactNode }) {
     return (
         <>
             <Navbar />
