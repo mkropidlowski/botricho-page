@@ -12,19 +12,19 @@ interface ServicesProps {
     slug: string;
 }
 
+const scrollToTop = () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+    });
+};
+
 const ServicesDetails: React.FC<ServicesProps> = ({ services, slug }) => {
     const [servicesCategory, setServicesCategory] = useState<string>();
     const [servicesDetails, setServicesDetails] = useState<BE_Services[]>([]);
 
     useEffect(() => {
-        const scrollToTop = () => {
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth",
-            });
-        };
-
-        return scrollToTop;
+        scrollToTop();
     }, []);
 
     useEffect(() => {
@@ -32,7 +32,11 @@ const ServicesDetails: React.FC<ServicesProps> = ({ services, slug }) => {
             setServicesCategory(slug);
             setServicesDetails(services);
         }
-    }, []);
+    }, [slug]);
+
+    useEffect(() => {
+        scrollToTop();
+    }, [servicesCategory]);
 
     const selectedServicesList = servicesDetails.filter((details) => details.category === servicesCategory);
 
@@ -57,7 +61,7 @@ const ServicesDetails: React.FC<ServicesProps> = ({ services, slug }) => {
                     <div className="max-w-[1150px] flex ">
                         {selectedServicesList.length === 0 ? (
                             <div className="flex items-center flex-col gap-5 p-4 h-[550px]">
-                                <h2 className="text-lg">Brak zabiegów w kategorii - {slug}</h2>
+                                <h2 className="text-lg text-center">Brak zabiegów w kategorii - {slug}</h2>
                                 <Link href={"/"} className="font-medium">
                                     Wróć do strony głownej
                                 </Link>
