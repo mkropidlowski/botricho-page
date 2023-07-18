@@ -115,9 +115,17 @@ const Navbar: FC<NavbarProps> = ({ className, links = menuLinks }) => {
                     {data?.user ? (
                         <div className={clsx("flex gap-5", isMobileMenuOpen ? "flex-col" : "")}>
                             <Link href="/panel">
-                                <button>Witaj, {data?.user?.name}</button>
+                                <button className="bg-gray-300 rounded-lg w-[150px] p-2" type="button">
+                                    Witaj, {data?.user?.name}
+                                </button>
                             </Link>
-                            <button onClick={() => signOut({ callbackUrl: "/" })}>Wyloguj</button>
+                            <button
+                                className="bg-red-500  text-white rounded-lg w-fit p-2"
+                                type="button"
+                                onClick={() => signOut({ callbackUrl: "/" })}
+                            >
+                                Wyloguj
+                            </button>
                         </div>
                     ) : null}
                 </li>
