@@ -23,7 +23,7 @@ const Footer: FC<IFooter> = ({ className }) => {
                     className="cursor-pointer z-[30] max-w-[300px]"
                     aria-label="Booksy Botriocho"
                 >
-                    <button className=" md:h-[50px] h-[60px] text-lg rounded-lg bg-buttonColor font-medium text-white pl-3 pr-3 cursor-pointer">
+                    <button className=" md:h-[50px] h-[60px] text-lg rounded-lg bg-buttonColor font-medium text-white pl-3 pr-3 cursor-pointer hover:bg-buttonHover transition-colors duration-300">
                         Zarezeruj wizytę za pomocą Booksy!
                     </button>
                 </Link>

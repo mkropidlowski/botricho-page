@@ -23,6 +23,9 @@ module.exports = {
                 boxColor: {
                     DEFAULT: "#e7b298",
                 },
+                buttonHover: {
+                    DEFAULT: "#749281",
+                },
                 secondary: {
                     DEFAULT: "#202945",
                 },
