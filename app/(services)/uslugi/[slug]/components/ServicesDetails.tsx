@@ -6,11 +6,31 @@ import Link from "next/link";
 import clsx from "clsx";
 import { Service } from "@prisma/client";
 import Loading from "../loading";
+import { motion, Variants } from "framer-motion";
 
 interface ServicesProps {
     services: Service[];
     slug: string;
 }
+const containerVariants: Variants = {
+    initial: {},
+    animate: {
+        transition: {
+            staggerChildren: 0.3,
+        },
+    },
+};
+
+const cardVariants: Variants = {
+    initial: {
+        y: 100,
+        opacity: 0,
+    },
+    animate: {
+        y: 0,
+        opacity: 1,
+    },
+};
 
 const scrollToTop = () => {
     window.scrollTo({
@@ -70,17 +90,21 @@ const ServicesDetails: React.FC<ServicesProps> = ({ services, slug }) => {
                             <div className="h-fit mb-[150px]">
                                 <h1 className="text-4xl font-bold">{slug}</h1>
 
-                                <div className="flex flex-wrap gap-5 p-4">
+                                <motion.div
+                                    animate="animate"
+                                    initial="initial"
+                                    variants={containerVariants}
+                                    className="flex flex-wrap gap-5 p-4"
+                                >
                                     {selectedServicesList.map((item) => (
-                                        <div
-                                            className="bg-boxColor md:w-[500px] w-[300px] rounded-md p-3"
-                                            key={item.id}
-                                        >
-                                            <h2>{item.title}</h2>
-                                            <p>{item.description}</p>
-                                        </div>
+                                        <motion.div key={item.id} variants={cardVariants}>
+                                            <div className="bg-boxColor md:w-[500px] w-[300px] rounded-md p-3">
+                                                <h2>{item.title}</h2>
+                                                <p>{item.description}</p>
+                                            </div>
+                                        </motion.div>
                                     ))}
-                                </div>
+                                </motion.div>
                             </div>
                         )}
                     </div>

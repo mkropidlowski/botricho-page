@@ -25,6 +25,14 @@ const itemVariants: Variants = {
         x: 0,
         opacity: 1,
     },
+    imageInitial: {
+        x: 150,
+        opacity: 0,
+    },
+    imageAnimation: {
+        x: 0,
+        opacity: 1,
+    },
 };
 
 const AboutSection = () => {
@@ -90,8 +98,10 @@ const AboutSection = () => {
                 </motion.div>
                 <div>
                     <motion.div
-                        initial={{ opacity: 0, y: 175 }}
-                        animate={{ opacity: 1, y: 0 }}
+                        ref={inViewRef}
+                        variants={itemVariants}
+                        initial="imageInitial"
+                        animate={isInView ? "imageAnimation" : "imageInitial"}
                         transition={{ ease: "easeOut", duration: 1, delay: 0.3 }}
                         className="flex items-center justify-center w-[310px] h-[300px]"
                     >
