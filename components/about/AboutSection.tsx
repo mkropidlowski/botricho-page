@@ -26,11 +26,11 @@ const itemVariants: Variants = {
         opacity: 1,
     },
     imageInitial: {
-        x: 150,
+        y: -150,
         opacity: 0,
     },
     imageAnimation: {
-        x: 0,
+        y: 0,
         opacity: 1,
     },
 };
