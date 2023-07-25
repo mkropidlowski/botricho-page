@@ -34,7 +34,7 @@ const Navbar: FC<NavbarProps> = ({ className, links = menuLinks }) => {
                     <span className="text-xs">Kosmetologia | Trychologia</span>
                 </Link>
             </h2>
-            <div className={clsx("me-[-25px] md:hidden", isMobileMenuOpen ? "p-2" : "p-2")}>
+            <div className={clsx("me-[-25px] lg:hidden", isMobileMenuOpen ? "p-2" : "p-2")}>
                 <button
                     type="button"
                     onClick={handleMobileMenuToggle}
@@ -61,7 +61,7 @@ const Navbar: FC<NavbarProps> = ({ className, links = menuLinks }) => {
             <ul
                 className={clsx(
                     "flex items-center gap-[35px] text-base font-medium",
-                    isMobileMenuOpen ? "flex-col bg-white w-full z-10 gap-[5px] text-center" : "hidden md:flex"
+                    isMobileMenuOpen ? "flex-col bg-white w-full z-10 gap-[5px] text-center" : "hidden lg:flex"
                 )}
             >
                 {Object.values(links).map(({ id, text, redirectToComponent, scrollIntoTop }: MenuLinksProps) => {
