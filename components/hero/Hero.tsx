@@ -20,8 +20,10 @@ const Hero: FC<HeroProps> = ({ className }) => {
                 transition={{ ease: "easeOut", duration: 2, delay: 0.2 }}
             >
                 <div>
-                    <h1 className="uppercase md:text-[37px] text-[27px] font-semibold">Gabinet Botricho</h1>
-                    <p className="p-4 md:text-4xl text-[23px] max-w-3xl font-normal">
+                    <h1 className="uppercase md:text-[37px] text-[27px] font-semibold text-[#fffaf0]">
+                        Gabinet Botricho
+                    </h1>
+                    <p className="p-4 md:text-4xl text-[23px] max-w-3xl font-bold text-[#f5fffa]">
                         Specjalizujemy się w trychologi praktycznej i kosmetologi.
                     </p>
                 </div>

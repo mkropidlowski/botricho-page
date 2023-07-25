@@ -24,7 +24,7 @@ const HeroImage = () => {
                     alt="Botricho Background"
                     fill
                     style={{ objectFit: "cover" }}
-                    className="opacity-70 object-top"
+                    className="opacity-80 object-top"
                     priority
                 />
             </div>
