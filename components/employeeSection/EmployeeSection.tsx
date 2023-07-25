@@ -79,7 +79,7 @@ const EmployeeSection = () => {
                 initial="initial"
                 animate={isInView ? "animate" : "initial"}
             >
-                <div className="max-h-[650px] flex flex-col gap-5 max-w-[500px] items-center">
+                <div className="flex flex-col gap-5 max-w-[500px] items-center">
                     <motion.div
                         variants={itemVariants}
                         animate={isInView ? "animateImage" : "initialImage"}
@@ -121,7 +121,7 @@ const EmployeeSection = () => {
                         </button>
                     </Link>
                 </div>
-                <div className="max-h-[650px] flex flex-col gap-5 max-w-[500px] items-center">
+                <div className="flex flex-col gap-5 max-w-[500px] items-center">
                     <motion.div
                         variants={itemVariants}
                         animate={isInView ? "animateImage" : "initialImage"}
