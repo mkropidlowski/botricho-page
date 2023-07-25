@@ -35,6 +35,9 @@ module.exports = {
                 footerColor: {
                     DEFAULT: "#3b82f6",
                 },
+                employeeButton: {
+                    DEFAULT: "#DBAC34",
+                },
             },
             width: {
                 1440: "1440px",

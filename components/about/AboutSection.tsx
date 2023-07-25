@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion, Variants } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useState, useEffect, useRef } from "react";
+import { aboutDescription, aboutHeading } from "./helpers/data";
 
 const containerVariants: Variants = {
     initial: {},
@@ -56,31 +57,28 @@ const AboutSection = () => {
             <div>
                 <h1 className={clsx("md:text-[60px] md:font-bold p-5 text-[45px] font-semibold")}>O nas</h1>
             </div>
-            <div className="w-full min-h-[600px] flex md:flex-row flex-col justify-evenly gap-[100px] items-center">
-                <motion.div
-                    ref={inViewRef}
-                    className="flex flex-col gap-3 max-w-[500px]"
-                    variants={containerVariants}
-                    initial="initial"
-                    animate={isInView ? "animate" : "initial"}
-                >
+            <motion.div
+                className="w-full min-h-[600px] flex md:flex-row flex-col justify-evenly gap-[50px] items-center"
+                ref={inViewRef}
+                variants={containerVariants}
+                initial="initial"
+                animate={isInView ? "animate" : "initial"}
+            >
+                <div className="flex flex-col gap-3 max-w-[500px]">
                     <motion.h2
                         className="text-[30px] font-medium"
                         variants={itemVariants}
                         style={{ marginBottom: "10px" }}
                     >
-                        Salon Botricho
+                        {aboutHeading.heading}
                     </motion.h2>
-                    <motion.p
-                        className="max-w-[300px] md:w-[500px] mt-[20px]"
+                    <motion.div
+                        className="max-w-[300px] md:max-w-[550px] mt-[20px]"
                         variants={itemVariants}
                         style={{ marginBottom: "10px" }}
                     >
-                        It is a long established fact that a reader will be distracted by the readable content of a page
-                        when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                        distribution of letters, as opposed to using Content here, content here, making it look like
-                        readable English.
-                    </motion.p>
+                        {aboutDescription()}
+                    </motion.div>
                     <Link
                         href="https://botricho.booksy.com"
                         target="_blank"
@@ -95,7 +93,7 @@ const AboutSection = () => {
                             Dowiedz się więcej
                         </motion.button>
                     </Link>
-                </motion.div>
+                </div>
                 <div>
                     <motion.div
                         ref={inViewRef}
@@ -115,7 +113,7 @@ const AboutSection = () => {
                         />
                     </motion.div>
                 </div>
-            </div>
+            </motion.div>
         </div>
     );
 };

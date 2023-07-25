@@ -28,6 +28,12 @@ const cardVariants: Variants = {
     animate: {
         y: 0,
         opacity: 1,
+
+        transition: {
+            delayChildren: 0.3,
+            ease: "easeOut",
+            duration: 1,
+        },
     },
 };
 
