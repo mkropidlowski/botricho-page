@@ -16,6 +16,10 @@ export const menuLinks = {
         id: "employee",
         text: "Zespół",
     },
+    efects: {
+        id: "efects",
+        text: "Efekty",
+    },
     contact: {
         id: "contact",
         text: "Kontakt",
