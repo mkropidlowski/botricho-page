@@ -97,8 +97,8 @@ const EmployeeSection = () => {
                     <motion.h2 variants={itemVariants} className="text-xl font-medium">
                         Martyna
                     </motion.h2>
-                    <motion.div variants={itemVariants} className="max-w-[300px] md:max-w-[550px] mt-[20px]">
-                        <p>
+                    <motion.div variants={itemVariants} className="max-w-[310px] md:max-w-[550px] mt-[20px]">
+                        <p className="text-justify break-normal hyphens-auto">
                             Martyna jest studentką studiów drugiego stopnia z{" "}
                             <b>kosmetologii na Wyższej Szkole Zdrowia w Gdańsku ze specjalizacją trychologia.</b>{" "}
                             Ukończyła roczny staż w jednym z Tczewskich salonów urody. Szkoliła się w{" "}
@@ -140,7 +140,7 @@ const EmployeeSection = () => {
                         Michał
                     </motion.h2>
                     <motion.div variants={itemVariants} className="max-w-[300px] md:max-w-[550px] mt-[20px]">
-                        <p>
+                        <p className="text-justify break-normal hyphens-auto">
                             Michał w Botricho wykonuje <b>masaże - sportowy, klasyczny i relaksacyjny. </b>Studiuje na
                             AWFiS w Gdańsku, jest dyplomowanym masażystą. Michał do tej pory masował w klubie sportowym
                             i u klienta. Cały czas podnosi swoje kwalifikacje kolejnymi kursami i szkoleniami. Jest

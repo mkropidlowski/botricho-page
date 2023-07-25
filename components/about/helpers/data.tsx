@@ -3,7 +3,7 @@ export const aboutHeading = {
 };
 
 export const aboutDescription = () => (
-    <div>
+    <div className="text-justify break-normal">
         Nazywam się <b>Aneta Spicha</b>, moją specjalizacją jest <b>trychologia i kosmetologia.</b> Jestem absolwentką
         kosmetologii drugiego stopnia w Wyższej Szkole Zdrowia, Urody i Edukacji w Poznaniu, gdzie pare lat temu
         podyplomowo ukończyłam Trychologię Praktyczną. Uczestniczę w szkoleniach, festiwalach trychologicznych i

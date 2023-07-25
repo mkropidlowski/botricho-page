@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { FC, useState } from "react";
-import { MenuLinksProps, NavbarProps } from "./helpers/types";
+import { FC, useState, useEffect } from "react";
+import { MenuLinksProps, NavbarProps, BREAKPOINT } from "./helpers/types";
 import { menuLinks } from "./helpers/links";
 import { signOut, useSession } from "next-auth/react";
 import clsx from "clsx";
@@ -60,10 +60,8 @@ const Navbar: FC<NavbarProps> = ({ className, links = menuLinks }) => {
             </div>
             <ul
                 className={clsx(
-                    "flex items-center gap-[50px] text-base font-medium",
-                    isMobileMenuOpen
-                        ? "flex-col bg-white w-full h-[500px] z-10 gap-[5px] text-center"
-                        : "hidden md:flex"
+                    "flex items-center gap-[35px] text-base font-medium",
+                    isMobileMenuOpen ? "flex-col bg-white w-full z-10 gap-[5px] text-center" : "hidden md:flex"
                 )}
             >
                 {Object.values(links).map(({ id, text, redirectToComponent, scrollIntoTop }: MenuLinksProps) => {

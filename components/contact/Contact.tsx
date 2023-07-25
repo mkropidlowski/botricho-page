@@ -1,5 +1,7 @@
 import clsx from "clsx";
+import Image from "next/image";
 import Iframe from "react-iframe";
+import minimap from "@/public/images/minimap.jpg";
 
 const Contact = () => {
     return (
@@ -14,8 +16,8 @@ const Contact = () => {
                     display="block"
                     title="Nawigacja do salonu"
                 />
-                <div className="md:w-[500px] md:h-[500px] w-[310px] h-[310px] bg-slate-400 text-black">
-                    miejsce na sprecyzowanie lokalizacji, zdjęcie sprzed salonu lub zrobić mini mapkę z pinezką??
+                <div className="md:w-[500px] md:h-[500px] w-[310px] h-[310px]">
+                    <Image src={minimap} alt="MiniMAP Botricho" style={{ objectFit: "contain" }} priority />
                 </div>
             </div>
         </div>
