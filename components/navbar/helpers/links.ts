@@ -16,9 +16,10 @@ export const menuLinks = {
         id: "employee",
         text: "Zespół",
     },
-    efects: {
-        id: "efects",
+    effects: {
+        id: "efekty",
         text: "Efekty",
+        redirectToComponent: true,
     },
     contact: {
         id: "contact",

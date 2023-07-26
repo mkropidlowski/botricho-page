@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { FC, useState, useEffect } from "react";
-import { MenuLinksProps, NavbarProps, BREAKPOINT } from "./helpers/types";
+import { FC, useState } from "react";
+import { MenuLinksProps, NavbarProps } from "./helpers/types";
 import { menuLinks } from "./helpers/links";
 import { signOut, useSession } from "next-auth/react";
 import clsx from "clsx";
@@ -77,7 +77,16 @@ const Navbar: FC<NavbarProps> = ({ className, links = menuLinks }) => {
                         >
                             {redirectToComponent ? (
                                 <Link href={hrefToComponent}>
-                                    <button type="button">{text}</button>
+                                    <button
+                                        type="button"
+                                        className={clsx(
+                                            isMobileMenuOpen
+                                                ? ""
+                                                : "hover:bg-gray-100 rounded-lg w-[90px] p-2 transition duration-500 ease-in-out hover:scale-110"
+                                        )}
+                                    >
+                                        {text}
+                                    </button>
                                 </Link>
                             ) : scrollIntoTop ? (
                                 <Link href={"/"} onClick={scrollToTop}>
@@ -111,7 +120,7 @@ const Navbar: FC<NavbarProps> = ({ className, links = menuLinks }) => {
                 })}
                 <li>
                     {data?.user ? (
-                        <div className={clsx("flex gap-5", isMobileMenuOpen ? "flex-col" : "")}>
+                        <div className={clsx("flex gap-4 items-center", isMobileMenuOpen ? "flex-col" : "")}>
                             <Link href="/panel">
                                 <button className="bg-gray-300 rounded-lg w-[150px] p-2" type="button">
                                     Witaj, {data?.user?.name}
@@ -127,7 +136,7 @@ const Navbar: FC<NavbarProps> = ({ className, links = menuLinks }) => {
                         </div>
                     ) : null}
                 </li>
-                <li className="flex gap-3">
+                <li className="flex gap-3 mb-6">
                     <Link href="https://www.facebook.com/botricho" target="_blank" aria-label="Facebook Botriocho">
                         <Facebook width={25} height={25} />
                     </Link>
