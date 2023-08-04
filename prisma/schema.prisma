@@ -30,7 +30,8 @@ model Service {
 
 model Categories {
   id String @id @default(auto()) @map("_id") @db.ObjectId
-  name String
+  name String?
+  image String?
   createdAt DateTime @default(now())
 }
 

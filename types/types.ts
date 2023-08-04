@@ -9,4 +9,5 @@ export interface BE_Services {
 export interface BE_Category {
     id?: string;
     name?: string;
+    image?: string;
 }

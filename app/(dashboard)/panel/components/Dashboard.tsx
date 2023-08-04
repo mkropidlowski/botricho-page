@@ -3,6 +3,7 @@ import { FC } from "react";
 import Loading from "../loading";
 import { Session } from "next-auth";
 import Link from "next/link";
+import AddCategoryForm from "@/components/forms/AddCategoryForm";
 
 interface IDashboard {
     session: Session | null;
@@ -31,7 +32,9 @@ const Dashboard: FC<IDashboard> = ({ session }) => {
                             Wyloguj
                         </button>
                     </div>
-                    <div>no elo elo tu będziemy zarządzać</div>
+                    <div>
+                        <AddCategoryForm />
+                    </div>
                 </div>
             ) : (
                 <Loading />
