@@ -4,6 +4,7 @@ import Loading from "../loading";
 import { Session } from "next-auth";
 import Link from "next/link";
 import AddCategoryForm from "@/components/forms/AddCategoryForm";
+import AddEffectsImage from "@/components/forms/AddEffectsImage";
 
 interface IDashboard {
     session: Session | null;
@@ -34,6 +35,9 @@ const Dashboard: FC<IDashboard> = ({ session }) => {
                     </div>
                     <div>
                         <AddCategoryForm />
+                    </div>
+                    <div>
+                        <AddEffectsImage />
                     </div>
                 </div>
             ) : (

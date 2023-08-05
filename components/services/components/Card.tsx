@@ -27,13 +27,13 @@ const Card: FC<ICard> = ({ category }) => {
         >
             <div className="flex  items-center justify-center w-[300px] h-[300px] relative border-gray-300 border-4 ">
                 <Image
-                    src={faceIcon}
+                    src={category?.image!}
                     alt="img"
                     fill
                     style={{ objectFit: "cover" }}
                     className={clsx("hover:blur-[1px]", styles.image)}
                 />
-                <h2 className="relative text-4xl text-white font-medium">{category?.name}</h2>
+                <h2 className="relative text-4xl text-white font-medium capitalize">{category?.name}</h2>
             </div>
         </div>
     );

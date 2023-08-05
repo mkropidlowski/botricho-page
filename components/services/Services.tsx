@@ -59,21 +59,27 @@ const Services: FC<IService> = ({ categories }) => {
                     Oferta
                 </h1>
             </div>
-            <motion.div
-                ref={inViewRef}
-                className="w-full flex justify-center items-center flex-wrap gap-4"
-                variants={containerVariants}
-                initial="initial"
-                animate={isInView ? "animate" : "initial"}
-            >
-                {categories.map((category) => {
-                    return (
-                        <motion.div key={category.id} variants={cardVariants}>
-                            <Card category={category} />
-                        </motion.div>
-                    );
-                })}
-            </motion.div>
+            {categories.length === 0 ? (
+                <div>
+                    <h2>Brak dostępnych kategorii, spróbuj ponowanie później.</h2>
+                </div>
+            ) : (
+                <motion.div
+                    ref={inViewRef}
+                    className="w-full flex justify-center items-center flex-wrap gap-4"
+                    variants={containerVariants}
+                    initial="initial"
+                    animate={isInView ? "animate" : "initial"}
+                >
+                    {categories.map((category) => {
+                        return (
+                            <motion.div key={category.id} variants={cardVariants}>
+                                <Card category={category} />
+                            </motion.div>
+                        );
+                    })}
+                </motion.div>
+            )}
         </div>
     );
 };

@@ -10,6 +10,7 @@ module.exports = {
     },
     images: {
         unoptimized: true,
+        domains: ["res.cloudinary.com"],
     },
     async redirect() {
         return [

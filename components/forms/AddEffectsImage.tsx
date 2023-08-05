@@ -4,8 +4,6 @@ import { BE_Category } from "@/types/types";
 import { useRef, useState } from "react";
 import { useSession } from "next-auth/react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import Button from "../buttons/Button";
-import Input from "../inputs/Input";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { PhotoIcon } from "../icons";
@@ -14,7 +12,7 @@ import Loading from "@/app/(dashboard)/panel/loading";
 
 type Variant = "ADD";
 
-const AddCategoryForm = () => {
+const AddEffectsImage = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [variant, setVariant] = useState<Variant>("ADD");
     const session = useSession();
@@ -45,38 +43,26 @@ const AddCategoryForm = () => {
 
     return (
         <div className="bg-orange-100 p-3 rounded-lg">
-            <h2 className="text-lg font-medium">Formularz dodawania nowej kategorii</h2>
+            <h2 className="text-lg font-medium">Formularz dodawania zdjęć z efektami.</h2>
             {session.data?.user ? (
                 <form
                     onSubmit={(e) => {
                         e.preventDefault();
                     }}
                     ref={formRef}
-                    className="flex items-end gap-10 p-4"
+                    className="flex justify-center gap-10 p-4"
                 >
-                    <div className="flex items-end gap-2">
-                        <Input
-                            disabled={isLoading}
-                            register={register}
-                            errors={errors}
-                            required
-                            id="name"
-                            label="Podaj nazwę, następnie dodaj zdjęcie."
-                            type="text"
-                        />
+                    <div className="flex gap-2">
                         <CldUploadButton
                             options={{ maxFiles: 1 }}
                             onUpload={handleSubmit(formSubmit)}
-                            uploadPreset="pkh3cs6m"
+                            uploadPreset="pkh3cs6m/effects"
                         >
-                            <PhotoIcon width={30} height={30} className="relative top-[-3px] cursor-pointer" />
+                            <div className="flex gap-3 ">
+                                <p className="font-bold hover:cursor-pointer"> Kliknij, aby dodać.</p>
+                                <PhotoIcon width={30} height={30} className="relative top-[-3px] cursor-pointer" />
+                            </div>
                         </CldUploadButton>
-                    </div>
-
-                    <div>
-                        <Button disabled={isLoading} type="submit">
-                            {variant === "ADD" && "Dodaj kategorię"}
-                        </Button>
                     </div>
                 </form>
             ) : (
@@ -86,4 +72,4 @@ const AddCategoryForm = () => {
     );
 };
 
-export default AddCategoryForm;
+export default AddEffectsImage;

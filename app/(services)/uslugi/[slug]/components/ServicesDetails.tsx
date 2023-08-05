@@ -74,21 +74,23 @@ const ServicesDetails: React.FC<ServicesProps> = ({ services, slug }) => {
                             <Link href="/">Home</Link> &gt;
                             <Link href="/">Usługi</Link> &gt;
                             <Link href={slug} className={clsx(slug ? "underline font-semibold" : "")}>
-                                {slug}
+                                <span className="capitalize">{slug}</span>
                             </Link>
                         </h3>
                     </div>
                     <div className="max-w-[1150px] flex ">
                         {selectedServicesList.length === 0 ? (
                             <div className="flex items-center flex-col gap-5 p-4 h-[550px]">
-                                <h2 className="text-lg text-center">Brak zabiegów w kategorii - {slug}</h2>
+                                <h2 className="text-lg text-center">
+                                    Brak zabiegów w kategorii - <span className="capitalize">{slug}</span>
+                                </h2>
                                 <Link href={"/"} className="font-medium">
                                     Wróć do strony głownej
                                 </Link>
                             </div>
                         ) : (
                             <div className="h-fit mb-[150px]">
-                                <h1 className="text-4xl font-bold">{slug}</h1>
+                                <h1 className="text-4xl font-bold capitalize">{slug}</h1>
 
                                 <motion.div
                                     animate="animate"
@@ -100,7 +102,7 @@ const ServicesDetails: React.FC<ServicesProps> = ({ services, slug }) => {
                                         <motion.div key={item.id} variants={cardVariants}>
                                             <div className="bg-boxColor md:w-[500px] w-[300px] rounded-md p-3">
                                                 <h2>{item.title}</h2>
-                                                <p>{item.description}</p>
+                                                <p>{item?.description}</p>
                                             </div>
                                         </motion.div>
                                     ))}
