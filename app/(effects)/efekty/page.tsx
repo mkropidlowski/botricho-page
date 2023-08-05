@@ -13,7 +13,7 @@ async function getData() {
                     `${process.env.NEXT_CLOUDINARY_API_KEY}:${process.env.NEXT_CLOUDINARY_API_SECRET}`
                 )}`,
             },
-            cache: "force-cache",
+            cache: "no-store",
         });
 
         if (!response.ok) {
@@ -50,7 +50,7 @@ export default async function Page() {
                 <h2 className="text-[30px] font-bold">Zapoznaj się z efektami naszych zabiegów</h2>
 
                 {data ? (
-                    <div className="max-w-[1000px] flex flex-wrap gap-3">
+                    <div className="max-w-[1000px] flex flex-wrap gap-3 justify-center">
                         {data.map((res: any) => {
                             if (res.folder === folderName) {
                                 return (
