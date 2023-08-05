@@ -7,11 +7,13 @@ import clsx from "clsx";
 import { Service } from "@prisma/client";
 import Loading from "../loading";
 import { motion, Variants } from "framer-motion";
+import { Arrow } from "@/components/icons";
 
 interface ServicesProps {
     services: Service[];
     slug: string;
 }
+
 const containerVariants: Variants = {
     initial: {},
     animate: {
@@ -42,6 +44,7 @@ const scrollToTop = () => {
 const ServicesDetails: React.FC<ServicesProps> = ({ services, slug }) => {
     const [servicesCategory, setServicesCategory] = useState<string>();
     const [servicesDetails, setServicesDetails] = useState<BE_Services[]>([]);
+    const [modalOpen, setModalOpen] = useState<boolean[]>([]);
 
     useEffect(() => {
         scrollToTop();
@@ -51,14 +54,24 @@ const ServicesDetails: React.FC<ServicesProps> = ({ services, slug }) => {
         if (slug && services) {
             setServicesCategory(slug);
             setServicesDetails(services);
+            const initialModalState = services.map(() => false);
+            setModalOpen(initialModalState);
         }
-    }, [slug]);
+    }, [slug, services]);
 
     useEffect(() => {
         scrollToTop();
     }, [servicesCategory]);
 
     const selectedServicesList = servicesDetails.filter((details) => details.category === servicesCategory);
+
+    const handleModalOpen = (index: number) => {
+        setModalOpen((prevModalState) => {
+            const updatedModalState = [...prevModalState];
+            updatedModalState[index] = !updatedModalState[index];
+            return updatedModalState;
+        });
+    };
 
     return (
         <>
@@ -98,11 +111,23 @@ const ServicesDetails: React.FC<ServicesProps> = ({ services, slug }) => {
                                     variants={containerVariants}
                                     className="flex flex-wrap gap-5 p-4"
                                 >
-                                    {selectedServicesList.map((item) => (
+                                    {selectedServicesList.map((item, index) => (
                                         <motion.div key={item.id} variants={cardVariants}>
                                             <div className="bg-boxColor md:w-[500px] w-[300px] rounded-md p-3">
-                                                <h2>{item.title}</h2>
-                                                <p>{item?.description}</p>
+                                                <div className="flex">
+                                                    <h2 className="p-3 font-medium text-[18px]">{item.title}</h2>
+                                                    {item.description?.length ? (
+                                                        <button
+                                                            className="hover:cursor-pointer"
+                                                            onClick={() => handleModalOpen(index)}
+                                                        >
+                                                            <Arrow width={20} height={20} />
+                                                        </button>
+                                                    ) : null}
+                                                </div>
+                                                {modalOpen[index] ? (
+                                                    <p className="text-[15px]">{item?.description}</p>
+                                                ) : null}
                                             </div>
                                         </motion.div>
                                     ))}

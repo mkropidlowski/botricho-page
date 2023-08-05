@@ -7,23 +7,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
             lastModified: new Date(),
         },
         {
-            url: "https://botricho.pl/uslugi/Twarz",
+            url: "https://botricho.pl/uslugi/trychologia",
             lastModified: new Date(),
         },
         {
-            url: "https://botricho.pl/uslugi/Głowa",
+            url: "https://botricho.pl/uslugi/kosmetologia",
             lastModified: new Date(),
         },
         {
-            url: "https://botricho.pl/uslugi/Włosy",
-            lastModified: new Date(),
-        },
-        {
-            url: "https://botricho.pl/uslugi/Masaż",
-            lastModified: new Date(),
-        },
-        {
-            url: "https://botricho.pl/uslugi/Stopy",
+            url: "https://botricho.pl/uslugi/masaż",
             lastModified: new Date(),
         },
     ];

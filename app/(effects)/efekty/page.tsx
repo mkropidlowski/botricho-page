@@ -33,7 +33,6 @@ async function getData() {
                 folder,
             };
         });
-
         return images;
     } catch (error) {
         console.error("Błąd pobierania danych z API.", error);
@@ -62,6 +61,7 @@ export default async function Page() {
                                             src={res.image}
                                             alt={res.id}
                                             fill
+                                            priority
                                             style={{ objectFit: "fill" }}
                                             className="rounded-md"
                                         />
