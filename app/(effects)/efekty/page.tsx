@@ -13,6 +13,7 @@ async function getData() {
                     `${process.env.NEXT_CLOUDINARY_API_KEY}:${process.env.NEXT_CLOUDINARY_API_SECRET}`
                 )}`,
             },
+            cache: "force-cache",
         });
 
         if (!response.ok) {
