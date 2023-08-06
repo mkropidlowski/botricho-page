@@ -1,45 +1,6 @@
 import Image from "next/image";
 import Loading from "./loading";
 
-const folderName = "effects";
-
-async function getData() {
-    try {
-        const url = `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/resources/image/?folder=${folderName}&tags=true&metadata=true`;
-
-        const response = await fetch(url, {
-            headers: {
-                Authorization: `Basic ${btoa(
-                    `${process.env.NEXT_CLOUDINARY_API_KEY}:${process.env.NEXT_CLOUDINARY_API_SECRET}`
-                )}`,
-            },
-            cache: "no-store",
-        });
-
-        if (!response.ok) {
-            throw new Error("Błąd sieci lub zapytania do API Cloudinary.");
-        }
-
-        const data = await response.json();
-        const { resources } = data;
-
-        const images = resources.map((resource: any) => {
-            const { width, height, folder } = resource;
-            return {
-                id: resource.asset_id,
-                image: resource.secure_url,
-                width,
-                height,
-                folder,
-            };
-        });
-        return images;
-    } catch (error) {
-        console.error("Błąd pobierania danych z API.", error);
-        return [];
-    }
-}
-
 export default async function Page() {
     const data = await getData();
 
@@ -76,4 +37,44 @@ export default async function Page() {
             </div>
         </div>
     );
+}
+
+const folderName = "effects";
+
+async function getData() {
+    try {
+        const url = `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/resources/image/?folder=${folderName}&tags=true&metadata=true&max_results=50`;
+
+        const response = await fetch(url, {
+            headers: {
+                Authorization: `Basic ${btoa(
+                    `${process.env.NEXT_CLOUDINARY_API_KEY}:${process.env.NEXT_CLOUDINARY_API_SECRET}`
+                )}`,
+            },
+            cache: "no-cache",
+        });
+
+        if (!response.ok) {
+            throw new Error("Błąd sieci lub zapytania do API Cloudinary.");
+        }
+
+        const data = await response.json();
+        const { resources, next_cursor: nextCursor } = data;
+
+        const images = resources.map((resource: any) => {
+            const { width, height, folder } = resource;
+            return {
+                id: resource.asset_id,
+                image: resource.secure_url,
+                width,
+                height,
+                folder,
+            };
+        });
+
+        return images;
+    } catch (error) {
+        console.error("Błąd pobierania danych z API.", error);
+        return [];
+    }
 }
