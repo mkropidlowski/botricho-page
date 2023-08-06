@@ -25,6 +25,7 @@ model Service {
   title String
   description String
   category String
+  subCategoryName String?
   createdAt DateTime @default(now())
 }
 
@@ -32,6 +33,14 @@ model Categories {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   name String?
   image String?
+  createdAt DateTime @default(now())
+}
+
+model SubCategories {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  subName String?
+  mainCategory String?
+  slugName String?
   createdAt DateTime @default(now())
 }
 

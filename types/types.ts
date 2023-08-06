@@ -4,10 +4,18 @@ export interface BE_Services {
     image?: string;
     description?: string;
     category?: string;
+    subCategoryName?: string;
 }
 
 export interface BE_Category {
     id?: string;
     name?: string;
     image?: string;
+}
+
+export interface BE_SubCategory {
+    id?: string;
+    subName?: string;
+    mainCategory?: string;
+    slugName?: string;
 }
