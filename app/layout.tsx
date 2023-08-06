@@ -27,7 +27,7 @@ export const metadata: Metadata = {
         maximumScale: 1,
     },
     robots: {
-        index: false,
+        index: true,
         follow: true,
         nocache: true,
         googleBot: {

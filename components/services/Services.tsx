@@ -8,7 +8,7 @@ import { motion, Variants } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 interface IService {
-    categories: BE_Category[];
+    categories?: BE_Category[];
 }
 
 const containerVariants: Variants = {
@@ -59,7 +59,7 @@ const Services: FC<IService> = ({ categories }) => {
                     Oferta
                 </h1>
             </div>
-            {categories.length === 0 ? (
+            {categories?.length === 0 ? (
                 <div>
                     <h2>Brak dostępnych kategorii, spróbuj ponowanie później.</h2>
                 </div>
@@ -71,7 +71,7 @@ const Services: FC<IService> = ({ categories }) => {
                     initial="initial"
                     animate={isInView ? "animate" : "initial"}
                 >
-                    {categories.map((category) => {
+                    {categories?.map((category) => {
                         return (
                             <motion.div key={category.id} variants={cardVariants}>
                                 <Card category={category} />
