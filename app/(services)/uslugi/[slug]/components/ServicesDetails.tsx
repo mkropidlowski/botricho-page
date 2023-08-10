@@ -106,11 +106,11 @@ const ServicesDetails: React.FC<ServicesProps> = ({ services, slug, subCategorie
                 <div className="max-w-[1150px] flex ">
                     <div className="h-fit mb-[150px]">
                         <h1 className="text-4xl font-bold capitalize">{slug}</h1>
-                        <div className="flex flex-wrap gap-5 p-4">
+                        <div className="flex flex-wrap md:gap-5 gap-1 p-4 flex-col md:flex-row">
                             {getSubCategoryDetails.map((item) => (
                                 <button
                                     key={item.id}
-                                    className="text-center bg-boxColor md:w-[200px] w-[100px] rounded-md p-3 mt-[50px] hover:cursor-pointer "
+                                    className="text-center bg-boxColor md:w-[200px] w-full rounded-md p-3 md:mt-[50px] mt-[20px] hover:cursor-pointer "
                                     onClick={() => handleSubCategoryClick(item.slugName)}
                                 >
                                     <span className="p-3 font-medium text-[18px] capitalize">{item.subName}</span>
@@ -153,7 +153,7 @@ const ServicesDetails: React.FC<ServicesProps> = ({ services, slug, subCategorie
                                 </Link>
                             </div>
                         ) : (
-                            <div className="h-fit mb-[150px]">
+                            <div className="h-fit mb-[150px] flex flex-col items-center">
                                 <h1 className="text-4xl font-bold capitalize">{slug}</h1>
 
                                 {getItemBySubCategory.length > 0 ? (
@@ -161,7 +161,7 @@ const ServicesDetails: React.FC<ServicesProps> = ({ services, slug, subCategorie
                                         animate="animate"
                                         initial="initial"
                                         variants={containerVariants}
-                                        className="flex flex-wrap gap-5 p-4"
+                                        className="flex flex-wrap gap-5 p-4 justify-center"
                                     >
                                         {getItemBySubCategory.map((item, index) => (
                                             <motion.div key={item.id} variants={cardVariants}>
@@ -192,7 +192,7 @@ const ServicesDetails: React.FC<ServicesProps> = ({ services, slug, subCategorie
                                         animate="animate"
                                         initial="initial"
                                         variants={containerVariants}
-                                        className="flex flex-wrap gap-5 p-4"
+                                        className="flex flex-wrap gap-5 p-4 justify-center"
                                     >
                                         {selectedServicesList.map((item, index) => (
                                             <motion.div key={item.id} variants={cardVariants}>
