@@ -165,7 +165,10 @@ const ServicesDetails: React.FC<ServicesProps> = ({ services, slug, subCategorie
                                     >
                                         {getItemBySubCategory.map((item, index) => (
                                             <motion.div key={item.id} variants={cardVariants}>
-                                                <div className="bg-boxColor md:w-[500px] w-[300px] rounded-md p-3">
+                                                <div
+                                                    className="bg-boxColor md:w-[500px] w-[300px] rounded-md p-3 hover:cursor-pointer"
+                                                    onClick={() => handleModalOpen(index)}
+                                                >
                                                     <div className="flex">
                                                         <h2 className="p-3 font-medium text-[18px]">{item.title}</h2>
                                                         {item.description?.length ? (
@@ -193,7 +196,10 @@ const ServicesDetails: React.FC<ServicesProps> = ({ services, slug, subCategorie
                                     >
                                         {selectedServicesList.map((item, index) => (
                                             <motion.div key={item.id} variants={cardVariants}>
-                                                <div className="bg-boxColor md:w-[500px] w-[300px] rounded-md p-3">
+                                                <div
+                                                    className="bg-boxColor md:w-[500px] w-[300px] rounded-md p-3 hover:cursor-pointer"
+                                                    onClick={() => handleModalOpen(index)}
+                                                >
                                                     <div className="flex">
                                                         <h2 className="p-3 font-medium text-[18px]">{item.title}</h2>
                                                         {item.description?.length ? (
