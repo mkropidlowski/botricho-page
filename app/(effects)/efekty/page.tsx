@@ -39,7 +39,7 @@ export default async function Page() {
     );
 }
 
-const folderName = "effects";
+const folderName = "effectsImage";
 
 async function getData() {
     try {
