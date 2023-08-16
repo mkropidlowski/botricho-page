@@ -29,7 +29,7 @@ const AddCategoryForm = () => {
 
     const formSubmit: SubmitHandler<FieldValues> = (data, result: any) => {
         if (variant === "ADD") {
-            setValue("name", "image", { shouldValidate: true });
+            setValue("name", "", { shouldValidate: true });
             axios
                 .post("api/categories", {
                     ...data,
