@@ -44,7 +44,7 @@ const AddCategoryForm = () => {
     };
 
     return (
-        <div className="bg-orange-100 p-3 rounded-lg">
+        <div className="flex flex-col items-center md:w-fit w-[310px] bg-orange-100 p-3 rounded-lg">
             <h2 className="text-lg font-medium">Formularz dodawania nowej kategorii</h2>
             {session.data?.user ? (
                 <form
@@ -52,7 +52,7 @@ const AddCategoryForm = () => {
                         e.preventDefault();
                     }}
                     ref={formRef}
-                    className="flex items-end gap-10 p-4"
+                    className="flex items-end gap-10 p-4 md:flex-row flex-col"
                 >
                     <div className="flex items-end gap-2">
                         <Input
@@ -72,7 +72,6 @@ const AddCategoryForm = () => {
                             <PhotoIcon width={30} height={30} className="relative top-[-3px] cursor-pointer" />
                         </CldUploadButton>
                     </div>
-
                     <div>
                         <Button disabled={isLoading} type="submit">
                             {variant === "ADD" && "Dodaj kategorię"}

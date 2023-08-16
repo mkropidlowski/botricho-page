@@ -33,7 +33,7 @@ const AddEffectsImage = () => {
     };
 
     return (
-        <div className="bg-orange-100 p-4 rounded-lg">
+        <div className="flex flex-col items-center md:w-fit w-[310px] bg-orange-100 p-3 rounded-lg">
             <h2 className="text-lg font-medium">Formularz dodawania do sekcji EFEKTY.</h2>
             {session.data?.user ? (
                 <div className="flex items-center justify-center">
