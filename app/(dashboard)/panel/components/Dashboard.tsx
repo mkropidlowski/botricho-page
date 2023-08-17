@@ -6,6 +6,7 @@ import Link from "next/link";
 import AddCategoryForm from "@/components/forms/AddCategoryForm";
 import AddEffectsImage from "@/components/forms/AddEffectsImage";
 import AddServicesForm from "@/components/forms/AddServicesForm";
+import { BE_Services } from "@/types/types";
 
 interface IDashboard {
     session: Session | null;

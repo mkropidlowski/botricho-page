@@ -195,12 +195,13 @@ const ServicesDetails: React.FC<ServicesProps> = ({ services, slug, subCategorie
                                         className="flex flex-wrap gap-5 p-4 justify-center"
                                     >
                                         {selectedServicesList.map((item, index) => (
-                                            <motion.div key={item.id} variants={cardVariants}>
-                                                <div
-                                                    className="bg-boxColor md:w-[500px] w-[300px] rounded-md p-3 hover:cursor-pointer"
-                                                    onClick={() => handleModalOpen(index)}
-                                                >
-                                                    <div className="flex">
+                                            <motion.div
+                                                key={item.id}
+                                                variants={cardVariants}
+                                                onClick={() => handleModalOpen(index)}
+                                            >
+                                                <div className="bg-boxColor md:w-[500px] w-[300px] rounded-md p-3 hover:cursor-pointer">
+                                                    <div className="flex justify-between">
                                                         <h2 className="p-3 font-medium text-[18px]">{item.title}</h2>
                                                         {item.description?.length ? (
                                                             <button

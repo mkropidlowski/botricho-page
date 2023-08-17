@@ -4,7 +4,6 @@ import Dashboard from "./components/Dashboard";
 
 const Panel = () => {
     const { data } = useSession();
-
     return (
         <div>
             <Dashboard session={data} />
