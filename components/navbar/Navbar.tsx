@@ -7,6 +7,8 @@ import { menuLinks } from "./helpers/links";
 import { signOut, useSession } from "next-auth/react";
 import clsx from "clsx";
 import { Booksy, Facebook, Instagram } from "../icons";
+import Image from "next/image";
+import logo from "@/public/images/botricho.png";
 
 const Navbar: FC<NavbarProps> = ({ className, links = menuLinks }) => {
     const { data } = useSession();
@@ -28,7 +30,10 @@ const Navbar: FC<NavbarProps> = ({ className, links = menuLinks }) => {
                 "fixed top-0 flex flex-wrap justify-around items-center w-full bg-white md:h-[90px] shadow-[0_8px_5px_-10px_rgba(0,0,0,0.3)] h-navBarHeight z-[100] "
             )}
         >
-            <h2 className={clsx("text-black")} onClick={scrollToTop}>
+            <h2 className={clsx("text-black flex justify-center gap-[10px] items-center")} onClick={scrollToTop}>
+                <Link href="/">
+                    <Image src={logo} alt="Botricho Gdańsk" width={40} height={40} />
+                </Link>
                 <Link href="/" className="flex flex-col">
                     <span className="text-lg font-medium">Botricho Gdańsk</span>
                     <span className="text-xs">Kosmetologia | Trychologia</span>

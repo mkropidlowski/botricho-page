@@ -4,6 +4,8 @@ import HeroImage from "./components/HeroImage";
 import clsx from "clsx";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import logo from "@/public/images/botricho.png";
 
 interface HeroProps {
     className?: string;
@@ -20,6 +22,7 @@ const Hero: FC<HeroProps> = ({ className }) => {
                 transition={{ ease: "easeOut", duration: 2, delay: 0.2 }}
             >
                 <div>
+                    {/* <Image src={logo} alt="Botricho Gdańsk" width={100} height={100} /> */}
                     <h1 className="uppercase md:text-[37px] text-[27px] font-semibold text-[#fffaf0]">
                         Gabinet Botricho
                     </h1>

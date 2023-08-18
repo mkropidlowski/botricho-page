@@ -1,38 +1,31 @@
 "use client";
-import { Service } from "@prisma/client";
+import { Categories } from "@prisma/client";
 import axios from "axios";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
-import { useState } from "react";
+import { FC, useState } from "react";
 import toast from "react-hot-toast";
-import AuthForm from "@/app/(auth)/(routes)/logowanie/components/AuthForm";
+import Loading from "@/app/(category)/kategorie/loading";
 
-interface ListProps {
-    services: Service[];
-    onClick?: () => void;
+interface CategoryProps {
+    category: Categories[];
 }
 
-const List: React.FC<ListProps> = ({ services }) => {
-    const [servicesDetails, setServicesDetails] = useState<Service[]>([]);
-    const [searchQuery, setSearchQuery] = useState<string>("");
+const CategoryList: FC<CategoryProps> = ({ category }) => {
     const { data } = useSession();
+    const [categories, setCategories] = useState<Categories[]>([]);
 
-    const handleDeleteService = async (serviceId: string) => {
+    const handleDeleteCategory = async (categoryId: string) => {
         try {
-            await axios.delete(`/api/services`, { data: { serviceId } });
-            const updatedServices = servicesDetails.filter((item) => item.id !== serviceId);
+            await axios.delete(`/api/categories`, { data: { categoryId } });
+            const updateCategories = categories.filter((item) => item.id !== categoryId);
 
-            setServicesDetails(updatedServices);
+            setCategories(updateCategories);
             toast.success("Pomyślnie usunięto rekord.");
         } catch (error) {
             toast.error("Bład usuwania.");
         }
     };
-
-    const filteredServices = services.filter((service) =>
-        service.title.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-
     return (
         <div className="max-w-[600px] flex justify-center flex-col items-center mb-[50px]">
             {data?.user?.name ? (
@@ -49,27 +42,19 @@ const List: React.FC<ListProps> = ({ services }) => {
                         </Link>
                     </div>
                     <div>
-                        <h2 className="text-center">Wybierz lub wyszukaj usługę z listy a następnie kliknij usuń.</h2>
+                        <h2 className="text-center">Wybierz kategorie z listy i kliknij usuń.</h2>
                     </div>
-                    <div className="mt-[14px]">
-                        <input
-                            type="text"
-                            placeholder="Wyszukaj usługę..."
-                            className="border p-2 mb-4 rounded-lg w-full border-black"
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                        />
-                    </div>
+
                     <div>
-                        {filteredServices.map((service) => (
+                        {category.map((categoryItem) => (
                             <div
-                                key={service.id}
+                                key={categoryItem.id}
                                 className="flex p-2 bg-slate-400 text-white text-lg mt-[7px] justify-between"
                             >
-                                <h2>{service.title}</h2>
+                                <h2>{categoryItem.name}</h2>
                                 <button
                                     className="hover:cursor-pointer text-red-500"
-                                    onClick={() => handleDeleteService(service.id as string)}
+                                    onClick={() => handleDeleteCategory(categoryItem.id as string)}
                                 >
                                     Usuń
                                 </button>
@@ -78,10 +63,10 @@ const List: React.FC<ListProps> = ({ services }) => {
                     </div>
                 </div>
             ) : (
-                <AuthForm />
+                <Loading />
             )}
         </div>
     );
 };
 
-export default List;
+export default CategoryList;

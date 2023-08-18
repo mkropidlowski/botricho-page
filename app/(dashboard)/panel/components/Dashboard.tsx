@@ -33,6 +33,11 @@ const Dashboard: FC<IDashboard> = ({ session }) => {
                                     Lista zabiegów
                                 </button>
                             </Link>
+                            <Link href={"/kategorie"}>
+                                <button className="p-2 rounded-lg text-white bg-orange-600 hover:bg-orange-700">
+                                    Lista kategorii
+                                </button>
+                            </Link>
                             <button
                                 className="p-2 bg-red-500 hover:bg-red-700 rounded-lg text-white"
                                 onClick={() => signOut({ redirect: true, callbackUrl: "/" })}

@@ -26,3 +26,17 @@ export async function GET() {
         return NextResponse.json({ message: "GET ERROR" }, { status: 500 });
     }
 }
+
+export async function DELETE(request: Request) {
+    const { categoryId } = await request.json();
+    try {
+        await prisma.categories.delete({
+            where: {
+                id: categoryId,
+            },
+        });
+        return NextResponse.json("Pomyślnie usunięto.");
+    } catch (error) {
+        return NextResponse.json({ message: "Bład usuwania" }, { status: 500 });
+    }
+}
