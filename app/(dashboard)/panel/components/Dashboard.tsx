@@ -6,7 +6,6 @@ import Link from "next/link";
 import AddCategoryForm from "@/components/forms/AddCategoryForm";
 import AddEffectsImage from "@/components/forms/AddEffectsImage";
 import AddServicesForm from "@/components/forms/AddServicesForm";
-import { BE_Services } from "@/types/types";
 
 interface IDashboard {
     session: Session | null;
@@ -29,6 +28,11 @@ const Dashboard: FC<IDashboard> = ({ session }) => {
                                 </button>
                             </Link>
 
+                            <Link href={"/lista"}>
+                                <button className="p-2 rounded-lg text-white bg-sky-600 hover:bg-sky-700">
+                                    Lista zabiegów
+                                </button>
+                            </Link>
                             <button
                                 className="p-2 bg-red-500 hover:bg-red-700 rounded-lg text-white"
                                 onClick={() => signOut({ redirect: true, callbackUrl: "/" })}
@@ -43,7 +47,9 @@ const Dashboard: FC<IDashboard> = ({ session }) => {
                     <AddServicesForm />
                 </div>
             ) : (
-                <Loading />
+                <div className="flex items-center justify-center w-full h-full">
+                    <Loading />
+                </div>
             )}
         </div>
     );
