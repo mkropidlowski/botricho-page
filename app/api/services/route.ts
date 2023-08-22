@@ -23,9 +23,22 @@ export async function POST(request: Request) {
 export async function GET() {
     try {
         const servicesDetails = await prisma.service.findMany();
-        return NextResponse.json(servicesDetails);
+
+        const headers = {
+            "Cache-Control": "no-store",
+        };
+
+        return new Response(JSON.stringify(servicesDetails), {
+            headers,
+            status: 200,
+        });
+        // return NextResponse.json(servicesDetails);
     } catch (err) {
-        return NextResponse.json({ message: "POST ERROR" }, { status: 500 });
+        // return NextResponse.json({ message: "POST ERROR" }, { status: 500 });
+        return new Response(JSON.stringify({ message: "POST ERROR" }), {
+            headers: { "Cache-Control": "no-store" },
+            status: 500,
+        });
     }
 }
 
