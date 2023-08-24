@@ -6,6 +6,8 @@ import { PhotoIcon } from "../icons";
 import { CldUploadButton } from "next-cloudinary";
 import Loading from "@/app/(dashboard)/panel/loading";
 
+export const dynamic = "force-dynamic";
+
 const AddEffectsImage = () => {
     const session = useSession();
 
@@ -14,7 +16,7 @@ const AddEffectsImage = () => {
             const formData = new FormData();
             formData.append("file", result?.info?.secure_url);
             formData.append("upload_preset", "pkh3cs6m");
-            formData.append("folder", "effectsImage");
+            formData.append("folder", "images");
 
             await axios.post(
                 `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload`,
