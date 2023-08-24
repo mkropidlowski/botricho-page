@@ -4,9 +4,8 @@ import Input from "@/components/inputs/Input";
 import { useRouter } from "next/navigation";
 import { signIn, useSession } from "next-auth/react";
 
-import axios from "axios";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import Button from "@/components/buttons/Button";
 import Link from "next/link";
@@ -25,14 +24,6 @@ const AuthForm = () => {
         }
     }, [router, session.status, variant]);
 
-    const toggleVariant = useCallback(() => {
-        if (variant === "LOGIN") {
-            setVariant("REGISTER");
-        } else {
-            setVariant("LOGIN");
-        }
-    }, [variant]);
-
     const {
         register,
         handleSubmit,
@@ -48,16 +39,6 @@ const AuthForm = () => {
     const onSubmit: SubmitHandler<FieldValues> = (data) => {
         setIsLoading(true);
 
-        if (variant === "REGISTER") {
-            axios
-                .post("/api/register", data)
-                .catch(() => toast.error("Upss.. coś poszło nie tak."))
-                .finally(() => {
-                    setIsLoading(false);
-                    toast.success("Konto zostało utworzone, zaloguj się.");
-                    router.push("/");
-                });
-        }
         if (variant === "LOGIN") {
             signIn("credentials", { ...data, redirect: false })
                 .then((callback) => {
@@ -112,12 +93,7 @@ const AuthForm = () => {
                         </Button>
                     </div>
                 </form>
-                <div className="flex gap-2 justify-center text-sm mt-6 px-2 text-gray-500">
-                    <div>{variant === "LOGIN" ? "Nie posiadasz konta?" : "Posiadasz juz konto?"}</div>
-                    <div onClick={toggleVariant} className="underline cursor-pointer">
-                        {variant === "LOGIN" ? "Utwórz konto" : "Zaloguj"}
-                    </div>
-                </div>
+
                 <div className="flex gap-2 justify-center text-sm mt-6 px-2 text-gray-500">
                     <button className="p-3 bg-sky-500 text-white font-medium rounded-lg">
                         <Link href={"/"}>Powrót do strony głownej</Link>
