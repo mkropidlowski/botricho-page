@@ -1,8 +1,6 @@
 import Image from "next/image";
 import Loading from "./loading";
 
-export const dynamic = "force-dynamic";
-
 export default async function Page() {
     const data = await getData();
 
@@ -42,6 +40,8 @@ export default async function Page() {
 }
 
 const folderName = "effectsImage";
+
+export const dynamic = "force-dynamic";
 
 async function getData() {
     try {
