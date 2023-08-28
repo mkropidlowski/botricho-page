@@ -6,6 +6,7 @@ import Link from "next/link";
 import AddCategoryForm from "@/components/forms/AddCategoryForm";
 import AddEffectsImage from "@/components/forms/AddEffectsImage";
 import AddServicesForm from "@/components/forms/AddServicesForm";
+import AddSubCategoryForm from "@/components/forms/AddSubCategoryForm";
 
 interface IDashboard {
     session: Session | null;
@@ -50,6 +51,7 @@ const Dashboard: FC<IDashboard> = ({ session }) => {
                     <AddCategoryForm />
                     <AddEffectsImage />
                     <AddServicesForm />
+                    <AddSubCategoryForm />
                 </div>
             ) : (
                 <div className="flex items-center justify-center w-full h-full">
