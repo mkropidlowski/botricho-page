@@ -18,7 +18,7 @@ async function getData() {
         });
 
         if (!response.ok) {
-            throw new Error("Błąd sieci lub zapytania do API Cloudinary.");
+            throw new Error("Błąd zapytania do API Cloudinary.");
         }
 
         const data = await response.json();
