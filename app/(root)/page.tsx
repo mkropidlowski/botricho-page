@@ -14,7 +14,6 @@ export default async function Home() {
             <SectionsWrapper>
                 <Services categories={categories} />
                 <AboutSection />
-                <EmployeeSection />
                 <Contact />
                 <Footer />
             </SectionsWrapper>

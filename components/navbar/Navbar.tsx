@@ -36,7 +36,7 @@ const Navbar: FC<NavbarProps> = ({ className, links = menuLinks }) => {
                 </Link>
                 <Link href="/" className="flex flex-col">
                     <span className="text-lg font-medium">Botricho Gdańsk</span>
-                    <span className="text-xs">Kosmetologia | Trychologia</span>
+                    <span className="text-xs">Trychologia</span>
                 </Link>
             </h2>
             <div className={clsx("me-[-25px] lg:hidden", isMobileMenuOpen ? "p-2" : "p-2")}>

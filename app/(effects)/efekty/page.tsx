@@ -1,7 +1,8 @@
+export const dynamic = "force-dynamic";
+
 import Image from "next/image";
 import Loading from "./loading";
 
-export const dynamic = "force-dynamic";
 const folderName = "images";
 
 async function getData() {

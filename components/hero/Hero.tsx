@@ -27,7 +27,7 @@ const Hero: FC<HeroProps> = ({ className }) => {
                         Gabinet Botricho
                     </h1>
                     <p className="p-4 md:text-4xl text-[23px] max-w-3xl font-bold text-[#f5fffa]">
-                        Specjalizujemy się w trychologi praktycznej i kosmetologi.
+                        Specjalizujemy się w trychologi praktycznej.
                     </p>
                 </div>
                 <Link
