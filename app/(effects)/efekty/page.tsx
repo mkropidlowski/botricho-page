@@ -48,34 +48,37 @@ export default async function Page() {
     return (
         <div className="flex flex-col items-center gap-10 relative top-[130px] w-full p-3">
             <div className="flex flex-col gap-6 items-center">
-                <h2 className="text-[30px] font-bold">Zapoznaj się z efektami naszych zabiegów</h2>
+                {/* <h2 className="text-[30px] font-bold">Zapoznaj się z efektami naszych zabiegów</h2> */}
 
                 {data ? (
-                    <div className="max-w-[1000px] flex flex-wrap gap-3 justify-center">
-                        {data.map((res: any) => {
-                            if (res.folder === folderName) {
-                                return (
-                                    <div
-                                        key={res.id}
-                                        className="flex  items-center justify-center w-[300px] h-[300px] relative"
-                                    >
-                                        <Image
-                                            src={res.image}
-                                            alt={res.id}
-                                            fill
-                                            priority
-                                            style={{ objectFit: "fill" }}
-                                            className="rounded-md"
-                                        />
-                                    </div>
-                                );
-                            }
-                        })}
-                    </div>
+                    <div className="max-w-[1000px] flex flex-wrap gap-3 justify-center"></div>
                 ) : (
+                    // <div className="max-w-[1000px] flex flex-wrap gap-3 justify-center">
+                    //     {data.map((res: any) => {
+                    //         if (res.folder === folderName) {
+                    //             return (
+                    //                 <div
+                    //                     key={res.id}
+                    //                     className="flex  items-center justify-center w-[300px] h-[300px] relative"
+                    //                 >
+                    //                     <Image
+                    //                         src={res.image}
+                    //                         alt={res.id}
+                    //                         fill
+                    //                         priority
+                    //                         style={{ objectFit: "fill" }}
+                    //                         className="rounded-md"
+                    //                     />
+                    //                 </div>
+                    //             );
+                    //         }
+                    //     })}
+                    // </div>
                     <Loading />
                 )}
             </div>
         </div>
     );
 }
+
+// zakomentowane, naprawić obrazki
